@@ -3,6 +3,7 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix="#")
 channel_emojies = {}
+TOKEN = ''
 
 @bot.event
 async def on_ready():
@@ -53,3 +54,5 @@ async def on_message(message):
     if emojies := getattr(channel_emojies, ctx.message.id, None):
         for emoji in emojies:
         await message.add_reaction(emoji)
+
+bot.run(TOKEN)
